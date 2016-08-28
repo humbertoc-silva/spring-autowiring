@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byType" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="br.com.hcs.spring.autowiring.DataSource">
+		<property name="connectionString" value="jdbc:mysql://localhost/db" />
+	</bean>
+	
+	<bean id="dataSourceUsuarios" class="br.com.hcs.spring.autowiring.DataSource" autowire-candidate="false">
+		<property name="connectionString" value="jdbc:mysql://localhost/users"></property>
+	</bean>
+
+	<bean class="br.com.hcs.spring.autowiring.DAOUsuario">
+		<property name="dataSource" ref="dataSourceUsuarios" />
+	</bean>
+	
+	<bean class="br.com.hcs.spring.autowiring.DAOProduto" />
+	<bean class="br.com.hcs.spring.autowiring.DAOVenda" />
+	<bean class="br.com.hcs.spring.autowiring.Processador" />
+</beans>
