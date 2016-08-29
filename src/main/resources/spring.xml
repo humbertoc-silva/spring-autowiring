@@ -8,7 +8,7 @@
 	</bean>
 	
 	<bean id="dataSourceUsuarios" class="br.com.hcs.spring.autowiring.DataSource" autowire-candidate="false">
-		<property name="connectionString" value="jdbc:mysql://localhost/users"></property>
+		<property name="connectionString" value="jdbc:mysql://localhost/users" />
 	</bean>
 
 	<bean class="br.com.hcs.spring.autowiring.DAOUsuario">
